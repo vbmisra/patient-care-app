@@ -1,18 +1,11 @@
-const { Model, DataTypes, UUIDV4 } = require('sequelize')
+const { Model, DataTypes } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Patient extends Model {}
+class User extends Model {}
 
-Patient.init(
+User.init(
     {
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
-            autoIncrement: true,
-            unique: true,
-        },
-        name: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -21,18 +14,17 @@ Patient.init(
             allowNull: false,
             unique: true,
         },
-        symptoms: {
+        password: {
             type: DataTypes.STRING,
-            allowNull: true,
-        },
-        height: {
-            type: DataTypes.INTEGER,
             allowNull: false,
+            validate: {
+                len: [8]
+            },
         },
-        weight: {
-            type: DataTypes.INTEGER,
+        role: {
+            type: DataTypes.STRING,
             allowNull: false,
-        },
+        }
     },
     {
         sequelize,
@@ -43,4 +35,4 @@ Patient.init(
     }
 )
 
-module.exports = Patient
+module.exports = User
