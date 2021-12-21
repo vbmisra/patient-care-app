@@ -33,6 +33,14 @@ Patient.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        provider_id: {
+            //maybe UUID for datatype
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'Provider',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
