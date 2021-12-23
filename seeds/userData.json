@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Jon Snow",
+        "email": "itssnowing@yahoo.com",
+        "password": "password12345"
+    },
+    {
+        "name": "Siobhan Roy",
+        "email": "royalty@gmail.com",
+        "password": "password12345"
+    },
+    {
+        "name": "Peter Parker",
+        "email": "not.spiderman@hotmail.com",
+        "password": "password12345"
+    }
+]
