@@ -25,5 +25,17 @@ Provider.init(
                 key: 'id',
             },
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phone: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        specialty: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     }
 )

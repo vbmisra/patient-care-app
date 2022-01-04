@@ -21,7 +21,7 @@ Patient.init(
             allowNull: false,
             unique: true,
         },
-        symptoms: {
+        allergies: {
             type: DataTypes.STRING,
             allowNull: true,
         },
@@ -41,6 +41,11 @@ Patient.init(
                 key: 'id',
             },
         },
+        treatment_plan: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+
     },
     {
         sequelize,
