@@ -39,3 +39,5 @@ Provider.init(
         },
     }
 )
+
+module.exports = Provider;

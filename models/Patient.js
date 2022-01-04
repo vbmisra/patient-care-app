@@ -56,4 +56,4 @@ Patient.init(
     }
 )
 
-module.exports = Patient
+module.exports = Patient;

@@ -7,4 +7,4 @@ const patientRoutes = require('./patient-routes')
 router.use('/patients', patientRoutes)
 // router.use('/providers', providerRoutes)
 
-module.exports = router
+module.exports = router;
