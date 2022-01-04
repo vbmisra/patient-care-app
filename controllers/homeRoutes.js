@@ -1,18 +1,18 @@
 const router = require('express').Router();
-const { User, Blog } = require('../models');
+const { Patient, Provider } = require('../models');
 const withAuth = require('../utils/auth');
-// Prevent non logged in users from viewing the homepage
+
 router.get('/', async (req, res) => {
   try {
-    let logged_in = req.session.logged_in
-console.log("hi")
-let data = await Blog.findAll({
-      include:[
-        {model: User, as :"user"}
+    let loggedIn = req.session.loggedIn
+    console.log("hi")
+    let data = await Provider.findAll({
+      include: [
+        { model: Patient, as: "user" }
       ]
     })
-    let serializedData = data.map(blog=> blog.get({plain:true}))
-    res.render("blog" , {data:serializedData, logged_in})
+    let serializedData = data.map(provider => provider.get({ plain: true }))
+    res.render("provider", { data: serializedData, loggedIn })
   } catch (err) {
     res.status(500).json(err);
   }
@@ -25,10 +25,10 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
-router.get('/newuser', (req,res)=>{
+router.get('/newuser', (req, res) => {
   res.render('newAccount')
 })
-router.get('/dashboard' , withAuth, (req, res)=>{
+router.get('/dashboard', withAuth, (req, res) => {
   res.render("dashboard")
 })
 module.exports = router;
