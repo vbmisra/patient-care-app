@@ -3,7 +3,7 @@
 const { Model, DataTypes, UUIDV4 } = require('sequelize')
 const sequelize = require('../config/connection')
 
-class Provider extends Model {}
+class Provider extends Model { }
 
 Provider.init(
     {
@@ -38,7 +38,17 @@ Provider.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
     }
-)
+
+
+
+);
 
 module.exports = Provider;
