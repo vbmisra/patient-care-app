@@ -4,7 +4,7 @@ const userRoutes = require('./user-routes')
 
 const providerRoutes = require('./provider-routes');
 
-const patientRoutes = required('./patient-routes');
+const patientRoutes = require('./patient-routes');
 
 router.use('/user', userRoutes);
 router.use('/provider', providerRoutes);
