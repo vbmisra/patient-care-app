@@ -31,6 +31,7 @@ h6 {
   margin: 0;
   color: var(--dark);
   line-height: 1.25;
+  text-align: center;
 }
 
 h2 a:visited {
@@ -43,6 +44,7 @@ h2 a {
 
 header {
   margin-top: 50px;
+  text-align: center;
 }
 
 main {
@@ -56,6 +58,10 @@ a {
 
 p {
   font-size: 1.2rem;
+}
+
+nav {
+  text-align: right;
 }
 
 input {

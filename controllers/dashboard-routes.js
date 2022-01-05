@@ -14,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const posts = patientData.map((patient) => patient.get({ plain: true }));
 
-    res.render('all-posts-admin', {
+    res.render('all-patients-admin', {
       layout: 'dashboard',
       posts,
     });
@@ -25,7 +25,7 @@ router.get('/', withAuth, async (req, res) => {
 
 // new patient
 router.get('/new', withAuth, (req, res) => {
-  res.render('new-post', {
+  res.render('new-patient', {
     layout: 'dashboard',
   });
 });
@@ -38,7 +38,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
     if (patientData) {
       const post = patientData.get({ plain: true });
 
-      res.render('edit-post', {
+      res.render('edit-patient', {
         layout: 'dashboard',
         post,
       });

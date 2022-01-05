@@ -11,13 +11,13 @@ router.get('/', withAuth, async (req, res) => {
 
     const posts = postData.map((patient) => patient.get({ plain: true }));
 
-    res.render('all-posts', { posts });
+    res.render('all-patients', { posts });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// get single post
+// get single patient
 router.get('/patient/:id', async (req, res) => {
   try {
     const postData = await Patient.findByPk(req.params.id, {
@@ -27,7 +27,9 @@ router.get('/patient/:id', async (req, res) => {
     if (postData) {
       const post = postData.get({ plain: true });
 
-      res.render('single-post', { post });
+      res.render('single-patient', {
+        layout: 'main',
+        post});
     } else {
       res.status(404).end();
     }
