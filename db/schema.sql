@@ -1,2 +1,3 @@
-DROP DATABASE IF EXISTS patient_db;
-CREATE DATABASE patient_db;
+DROP DATABASE IF EXISTS tech_blog_db;
+
+CREATE DATABASE tech_blog_db;

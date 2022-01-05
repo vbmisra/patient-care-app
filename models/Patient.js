@@ -1,59 +1,21 @@
-const { Model, DataTypes, UUIDV4 } = require('sequelize')
-const sequelize = require('../config/connection')
+const { Sequelize, Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/config');
 
 class Patient extends Model {}
 
 Patient.init(
-    {
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
-            autoIncrement: true,
-            unique: true,
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        allergies: {
-            type: DataTypes.STRING,
-            allowNull: true,
-        },
-        height: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        weight: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        provider_id: {
-            //maybe UUID for datatype
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'Provider',
-                key: 'id',
-            },
-        },
-        treatment_plan: {
-            type: DataTypes.STRING,
-            allowNull: false
-        }
-
-    },
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'user',
-    }
-)
+  {
+    name: DataTypes.STRING,
+    dob: DataTypes.STRING,
+    sex: DataTypes.STRING,
+    gender: DataTypes.STRING,
+    height: DataTypes.STRING,
+    weight: DataTypes.STRING,
+    treatment_plan: DataTypes.STRING,
+  },
+  {
+    sequelize
+  }
+);
 
 module.exports = Patient;
