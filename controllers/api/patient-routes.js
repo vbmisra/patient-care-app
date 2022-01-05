@@ -1,71 +1,56 @@
-const router = require('express').Router()
-const { Patient } = require('../../models')
+// import router and patient model along with authentication
+const router = require('express').Router();
+const { Patient } = require('../../models/');
+const withAuth = require('../../utils/auth');
 
-//create a patient
-router.post('/', async (req, res) => {
-    try {
-        const newPatient = await Patient.create({
-            name: req.body.name,
-            email: req.body.email,
-            symptoms: req.body.symptoms,
-            height: req.body.height,
-            weight: req.body.weight,
-            provider_id: req.body.provider_id,
-        })
+// create a new Patient that belongs to the doctor who is logged in
+router.post('/', withAuth, async (req, res) => {
+  const body = req.body;
 
-        res.status(200).json(newPatient)
-    } catch (err) {
-        res.status(400).json(err)
-    }
-})
-
-//delete a patient
-router.delete('/:id', async (req, res) => {
-    try {
-        const patientData = await Patient.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id
-            },
-        })
-
-        if(!patientData) {
-            res.status(404).json({ message: 'No patient found with this id' })
-            return;
-        }
-
-        res.status(200).json(patientData)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
-
-//find one patient
-router.get('/:id', async (req, res) => {
-    try {
-        const patientData = await Patient.findByPk({
-            where: {
-                id: req.params.id
-            }
-        })
-
-        if(!patientData) {
-            res.status(404).json({ message: 'No patient found with this id' })
-            return
-        }
-
-        res.status(200).json(patientData)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
-
-//find all patients
-router.get('/', async (req, res) => {
-    try {
-        const patientData = await Patient.findAll()
-        res.status(200).json(patientData)
-    } catch (err) {
-        res.status(400).json(err)
-    }
+  try {
+    const newPatient = await Patient.create({ ...body, userId: req.session.userId });
+    res.json(newPatient);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+// edit an existing patient that the same doctor added
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = await Patient.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// delete a patient that the same doctor added
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = Patient.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
