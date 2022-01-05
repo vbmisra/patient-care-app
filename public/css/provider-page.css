@@ -1,1 +1,47 @@
-/* might need separate css files for provider and patient */
+header {
+    background: antiquewhite;
+    height:160px;
+     /* padding-top: 20px;
+    padding-left: 20px; */
+  }
+  .btn >a{
+    color:#fff;
+    /* margin: 4px; */
+  }
+  .btn.btn-dark{
+    margin: 4px;
+    display: inline-block;
+  }
+  
+  
+  
+  .card {
+   width: auto;
+   padding: 5px;
+   margin: 20px;
+   justify-content: center;
+  
+  }
+  
+  .card-body {
+    justify-content: center;
+  }
+  
+  .h1signup {
+    text-align:center;
+  }
+  
+  .firstQuestion {
+    display:block;
+  }
+  
+  .doctorQuestions {
+    display:none;
+  }
+  
+  .patientQuestions {
+    display:none;
+  }
+  
+  
+  
