@@ -67,4 +67,6 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(400).json(err)
     }
-}); //needs req look at 19 home-routes//
+});
+module.exports = router;
+//needs req look at 19 home-routes//
