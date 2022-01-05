@@ -29,7 +29,7 @@ router.delete('/:id', async (req, res) => {
             },
         })
 
-        if(!patientData) {
+        if (!patientData) {
             res.status(404).json({ message: 'No patient found with this id' })
             return;
         }
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
             }
         })
 
-        if(!patientData) {
+        if (!patientData) {
             res.status(404).json({ message: 'No patient found with this id' })
             return
         }
@@ -69,3 +69,5 @@ router.get('/', async (req, res) => {
         res.status(400).json(err)
     }
 });
+
+module.exports = router;
