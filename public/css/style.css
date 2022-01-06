@@ -209,6 +209,7 @@ input {
 .form-textarea {
   justify-content: center;
   display: block;
+
 }
 
 .form-label {
@@ -219,7 +220,7 @@ input {
 
 .form-input {
   font-weight: 200;
-  color: var(--primary);
+  color: var(--dark);
   justify-content: center;
   width: 50vw;
   padding: 1%;
