@@ -1,9 +1,9 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #9caea9;
-  --tertiary: #788585;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --primary: beige;
+  --secondary: black;
+  --tertiary: black;
+  --light-dark: darkslategrey;
+  --dark:black;
   --border-radius: 0.3rem;
 }
 
@@ -12,10 +12,14 @@
 }
 
 body {
-  background-color: var(--primary);
+  background: rgb(39,56,59);
+  background: linear-gradient(90deg, rgba(39,56,59,1) 0%, rgba(97,137,138,1) 93%);
+  /* background: rgb(2,0,36);
+background: linear-gradient(351deg, rgba(2,0,36,1) 1%, rgba(94,94,101,1) 30%, rgba(0,187,255,0.9682247899159664) 100%); */
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
   color: var(--dark);
   line-height: 1.5;
   font-size: 16px;
@@ -76,11 +80,15 @@ input {
   color: var(--primary);
 }
 
+.app-title a {
+  color: black
+}
+
 .btn {
   font-size: 1.3rem;
   text-decoration: none;
   padding: 6px 5px;
-  width: 100%;
+  width: 50%;
   display: block;
   margin: 5px 0;
   border-radius: var(--border-radius);
@@ -88,7 +96,8 @@ input {
   border: none;
   outline: none;
   background-color: var(--light-dark);
-  box-shadow: 3px 3px var(--dark);
+  text-align: center;
+  /* box-shadow: 3px 3px var(--dark); */
   transform: translate(-1px, -1px);
 }
 
@@ -103,6 +112,10 @@ input {
   display: inline;
 }
 
+.sign-up {
+  color: var(--primary);
+}
+
 .li-inline {
   display: inline;
 }
@@ -110,7 +123,7 @@ input {
 .navbar {
   width: 100%;
   position: fixed;
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
 }
 
 .nav-item {
@@ -123,27 +136,14 @@ input {
 
 .hero {
   padding: 3% 4%;
-  background-color: var(--dark);
-  color: var(--primary);
+  /* background-color: var(--dark); */
+  color: black;
 }
 
 .hero p {
   max-width: 75%;
 }
 
-.app-title {
-  font-size: 3rem;
-  background-color: var(--primary);
-  color: var(--dark);
-  padding: 0 10px;
-  display: inline-block;
-  border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light-dark);
-}
-
-.app-title a {
-  color: var(--dark);
-}
 
 .list-group {
   padding: 1%;
@@ -173,42 +173,66 @@ input {
 }
 
 /* CARDS */
-.card {
+/* .card {
+  justify-content: center;
   margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+  /* border: 3px solid var(--dark); */
+  /* border-radius: var(--border-radius);
+} */ 
+
+.card {
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px; 
+  justify-content: center;
+  width: 50%;
 }
+
+
 
 .card-header {
   color: var(--primary);
-  background-color: var(--dark);
+  /* background-color: var(--dark); */
   padding: 1%;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-body {
   padding: 1%;
+  width: 50%;
+  justify-content: center;
 }
 
 /* FORM */
 .form-label,
 .form-input,
 .form-textarea {
+  justify-content: center;
   display: block;
+
 }
 
 .form-label {
+  color: var(--primary);
   font-size: 1.1rem;
   margin: 0 0 0 5px;
 }
 
 .form-input {
-  width: 100%;
+  font-weight: 200;
+  color: var(--dark);
+  justify-content: center;
+  width: 50vw;
   padding: 1%;
   margin: 5px 0;
   font-size: 1.2rem;
-  border: 2px solid var(--light-dark);
+  /* border: 2px solid var(--light-dark); */
   border-radius: var(--border-radius);
+}
+
+.login {
+  justify-content: center;
+  align-content: center;
 }
 
 /* HEIGHT / WIDTH UTILS */
@@ -217,7 +241,7 @@ input {
 }
 
 .min-100-vw {
-  min-width: 100vw;
+  min-width: 50vw;
 }
 
 /* FONT UTILS */
@@ -321,7 +345,7 @@ input {
   flex: 0 0 100%;
 }
 
-/* col-sm */
+
 @media screen and (min-width: 640px) {
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -372,7 +396,7 @@ input {
   }
 }
 
-/* col-md */
+
 @media screen and (min-width: 768px) {
   .col-md-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -423,7 +447,7 @@ input {
   }
 }
 
-/* col-lg */
+
 @media screen and (min-width: 992px) {
   .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -474,7 +498,6 @@ input {
   }
 }
 
-/* col-xl */
 @media screen and (min-width: 1200px) {
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
