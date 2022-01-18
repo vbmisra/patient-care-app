@@ -24,4 +24,3 @@ document.addEventListener(diagnosisBtn, getDiagnosis)
 
 console.log("Successful log!")
 
-
